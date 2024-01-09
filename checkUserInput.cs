@@ -10,17 +10,16 @@ namespace CheckInput
     {
         static void Main(string[] arg)
         {
-
-            string[] userRoles = ["administrator", "manager", "user"];
+            string[] userRoles = { "administrator", "manager", "user" };
             bool validAnswer = false;
 
             do
             {
-                Console.Write("Enter your role name (Administrator, Manager, or User): ");
-                string? userAnswer = Console.ReadLine();
-                userAnswer = userAnswer?.Trim();
+                Console.WriteLine("Enter your role name (Administrator, Manager, or User): ");
+                string userAnswer = Console.ReadLine() ?? "";
+                userAnswer = userAnswer.Trim();
 
-                if (userRoles.Contains(userAnswer?.ToLower()))
+                if (userRoles.Contains(userAnswer.ToLower()))
                 {
                     Console.WriteLine($"Your input value ({ToCapitalFirstChar(userAnswer)}) has been accepted");
                     validAnswer = true;
@@ -31,6 +30,7 @@ namespace CheckInput
                 }
             } while (!validAnswer);
         }
+
         static string ToCapitalFirstChar(string? strToConvert)
         {
             char firstLetter = strToConvert.ToUpper()[0];
